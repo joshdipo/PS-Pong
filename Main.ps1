@@ -7,7 +7,7 @@ Get-Module -Name InputFunctions | Remove-Module -Force; Start-Sleep -Seconds 0.1
 Write-Host "Modules Unloaded!" -ForegroundColor Green; Start-Sleep -Seconds 0.1
 
 Write-Host "Unloading Classes..."
-Get-Module -Name Ball | Remove-Module -Force; Start-Sleep -Seconds 0.1
+Get-Module -Name GameObjects | Remove-Module -Force; Start-Sleep -Seconds 0.1
 Write-Host "Classes Unloaded!" -ForegroundColor Green; Start-Sleep -Seconds 0.1
 
 
@@ -23,7 +23,7 @@ Write-Host "Modules Imported!" -ForegroundColor Green; Start-Sleep -Seconds 0.1
 # Import Classes #
 ##################
 Write-Host "Importing Classes..."
-Import-Module .\Assets\Ball.ps1 -Force; Start-Sleep -Seconds 0.1
+Import-Module .\Assets\GameObjects.ps1 -Force; Start-Sleep -Seconds 0.1
 Write-Host "Classes Imported!" -ForegroundColor Green; Start-Sleep -Seconds 0.1
 
 ############################
@@ -106,10 +106,10 @@ do {
     ##################
     $inputKey = GetInputKey
     switch ($inputKey) {
-        UpArrow { $myBall.Move(0, -1) }
-        DownArrow { $myBall.Move(0, 1) }
-        LeftArrow { $myBall.Move(-1, 0) }
-        RightArrow { $myBall.Move(1, 0) }
+        UpArrow { $myBall.Move(0, -1) | Out-Null }
+        DownArrow { $myBall.Move(0, 1) | Out-Null }
+        LeftArrow { $myBall.Move(-1, 0) | Out-Null }
+        RightArrow { $myBall.Move(1, 0) | Out-Null }
         Default {  }
     }
 
